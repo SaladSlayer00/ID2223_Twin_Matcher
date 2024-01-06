@@ -1,0 +1,3 @@
+gradio
+boto3
+opencv-python
