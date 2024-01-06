@@ -22,15 +22,24 @@ This project is built around a complex system pipeline that ensures efficiency a
 
 A high-level illustration of the system pipeline can be visualized here:
 
-
+<!-- System -->
+<p align="center">
+  <img src="images/pipe.png" alt="System" width="1000">
+</p>
 
 ## How It Works 🤖
 
-### 1. Image Preprocessing Notebook 📷
+### 1. Data Preprocessing Notebook 📷
 **Objective**: Transform original dataset images into a refined format suitable for machine learning models. The notebook preprocesses the original dataset, [lansinuote/simple_facenet🤗](https://huggingface.co/datasets/lansinuote/simple_facenet), and makes it fit for training image classification networks. It solves class imbalance, checks for label coherence, and uploads the new dataset on the [Hugging Face Platform🤗](https://huggingface.co/datasets/SaladSlayer00/twin_matcher_data), ensuring it keeps the right format. This allows the data to benefit from the functionalities offered by the datasets library, and easy retrieval thanks to full integration with the rest of the environment. The image dataset is composed of a DataDict of images (which are [160 x 160] cuts of faces of various celebrities) and labels (the associated celebrity names). There's a total of 105 initial identities, each presenting 85 images in the training split. 
-### 2. Data Pipeline 🚢
+<!-- Image -->
+<p align="center">
+  <img src="images/type.png" width=1000>
+  <img src="images/image.png" width=1000>
+</p>
 
-Our **Data Pipeline** is where the magic happens. 🌟 Users can upload videos through a sleek Gradio app. We capture frames from these videos, identifying faces and associating them with user names. The processed data is then whisked away to an S3 bucket, ready for its next adventure.
+### 2. Image Upload Pipeline 🚢
+
+The **Upload Pipeline** lets users upload videos through a Gradio app. They should be 4-5 seconds videos of the user's face, including rotations from both sides. We capture frames from these videos, identifying faces and associating them with user names. The processed data is then whisked away to an S3 bucket, ready for its next adventure.
 
 ### 3. Image Pipeline Python Program 🐍
 
