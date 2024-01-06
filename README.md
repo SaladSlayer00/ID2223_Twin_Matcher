@@ -39,7 +39,17 @@ A high-level illustration of the system pipeline can be visualized here:
 
 ### 2. Image Upload Pipeline 🚢
 
-The **Upload Pipeline** lets users upload videos through a Gradio app. They should be 4-5 seconds videos of the user's face, including rotations from both sides. We capture frames from these videos, identifying faces and associating them with user names. The processed data is then whisked away to an S3 bucket, ready for its next adventure.
+The **Upload Pipeline** lets users upload videos through a Gradio app. They should be 5-6 seconds videos of the user's face, including rotations from both sides. Since uploading numerous, high-quality images would be a cumbersome task for users, we have opted to capture frames from these videos, identifying faces and associating them with user names that are taken as inputs. The frames are obtained with opencv, and saved every 100 milliseconds as default. Of course, since the original dataset was preprocessed to only include images that are 'good' for training, so close-up cuts of faces, the inputs need to be preprocessed in the same way. A video that presents good characteristics of resolution and movement can provide around 50 images with the current settings. This operation is easily performed with the CascadeClassifier, which detects faces' bounding boxes. Its hyperparameters have been tuned to obtain a good balance of quantity of images and the correctness of face recognition. 
+<!-- Image -->
+<p align="center">
+  <img src="images/upload.png" width=1000>
+</p>
+The processed images are uploaded to an Amazon S3 bucket. This operation is made possible by the setting of secret keys in the Hugging Face space of the app, which allows for direct communication with the platform. The execution of the app creates a new folder in the bucket with the title 'name_lastname' inserted by the user, and containing the captured images as .png files.
+<!-- Image -->
+<p align="center">
+  <img src="images/buckets.png" width=1000>
+  <img src="images/contents.png" width=1000>
+</p>
 
 ### 3. Image Pipeline Python Program 🐍
 
