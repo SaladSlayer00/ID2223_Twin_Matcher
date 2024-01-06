@@ -1,15 +1,11 @@
 
-# Twin Matcher - Find Your Celebrity Lookalike 🌟
+# Twin Matcher - Find Your Lookalike 🌟
 
-Welcome to Twin Matcher, your gateway to discovering your celebrity doppelgänger! 🔍 This is the final project for the **ID2223 - Scalable Machine Learning & Deep Learning** course at KTH.
+Welcome to Twin Matcher, your gateway to discovering your celebrity doppelgänger! 🔍 This is the final project for the **ID2223 - Scalable Machine Learning & Deep Learning** course at KTH. Notebooks and files are commented, to ensure the best accessibility.
 
 ## Overview 🚀
 
-Twin Matcher leverages the power of the [Microsoft ResNet-50](https://huggingface.co/microsoft/resnet-50) model to find your celebrity lookalike. 
-<p align="center">
-  <img src="twin-matcher-demo.gif" alt="Twin Matcher Demo" width="600">
-</p>
-
+Twin Matcher leverages the power of the [Microsoft ResNet-50](https://huggingface.co/microsoft/resnet-50) model to find your lookalike. The system features a seamless pipeline that includes image preprocessing, data handling, model training, and inference. It allows you to visualize your prediction and upload your own data to become part of the dataset and find your long-lost twin. The system is designed for efficiency, minimizing the time from data acquisition to model improvement. By leveraging continuous integration practices, the pipeline is both robust and capable of handling large volumes of data without sacrificing performance. We ensure to get coherent batch updates and the best possible matches with continuous model retraining.
 
 ## Tools 🛠️
 
@@ -27,12 +23,11 @@ This project is built around a complex system pipeline that ensures efficiency a
 A high-level illustration of the system pipeline can be visualized here:
 
 
+
 ## How It Works 🤖
 
 ### 1. Image Preprocessing Notebook 📷
-
-The journey begins with our **Image Preprocessing Notebook**. 📔 This notebook meticulously prepares our celebrity dataset for its starring role in the Twin Matcher project. It transforms raw images into a format that our model can understand and appreciate. 📸
-
+**Objective**: Transform original dataset images into a refined format suitable for machine learning models. The notebook preprocesses the original dataset, [lansinuote/simple_facenet🤗](https://huggingface.co/datasets/lansinuote/simple_facenet), and makes it fit for training image classification networks. It solves class imbalance, checks for label coherence, and uploads the new dataset on the [Hugging Face Platform🤗](https://huggingface.co/datasets/SaladSlayer00/twin_matcher_data), ensuring it keeps the right format. This allows the data to benefit from the functionalities offered by the datasets library, and easy retrieval thanks to full integration with the rest of the environment. The image dataset is composed of a DataDict of images (which are [160 x 160] cuts of faces of various celebrities) and labels (the associated celebrity names). There's a total of 105 initial identities, each presenting 85 images in the training split. 
 ### 2. Data Pipeline 🚢
 
 Our **Data Pipeline** is where the magic happens. 🌟 Users can upload videos through a sleek Gradio app. We capture frames from these videos, identifying faces and associating them with user names. The processed data is then whisked away to an S3 bucket, ready for its next adventure.
