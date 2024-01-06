@@ -1,0 +1,8 @@
+tensorflow
+keras
+transformers
+datasets
+numpy
+matplotlib
+scikit-learn
+huggingface_hub==0.20.0
