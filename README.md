@@ -1,15 +1,31 @@
 
 # Twin Matcher - Find Your Celebrity Lookalike 🌟
 
-Welcome to Twin Matcher, your personal gateway to discovering your celebrity doppelgänger! 🔍
+Welcome to Twin Matcher, your gateway to discovering your celebrity doppelgänger! 🔍 This is the final project for the **ID2223 - Scalable Machine Learning & Deep Learning** course at KTH.
 
+## Overview 🚀
+
+Twin Matcher leverages the power of the [Microsoft ResNet-50](https://huggingface.co/microsoft/resnet-50) model to find your celebrity lookalike. 
 <p align="center">
   <img src="twin-matcher-demo.gif" alt="Twin Matcher Demo" width="600">
 </p>
 
-## Overview 🚀
 
-Twin Matcher is a fascinating project that leverages the power of the Microsoft ResNet-50 model to find your celebrity lookalike. It's more than just a face recognition app; it's an engaging journey into the world of AI and entertainment.
+## Tools 🛠️
+
+This project is built around a complex system pipeline that ensures efficiency and effectiveness, exploiting the capabilities of different tools and platforms:
+
+- **Microsoft ResNet-50 Model**: Our project utilizes the Microsoft ResNet-50 model, a deep convolutional neural network (CNN) known for its exceptional facial feature extraction capabilities, fitting for this task.
+
+- **Gradio for User Interaction**: Gradio, a user-friendly machine learning interface, connects users with our AI pipeline. It enables seamless image uploads and interactions with our system.
+
+- **Hugging Face Datasets and Models**: Twin Matcher leverages Hugging Face for dataset hosting and model management, promoting collaboration and data sharing within the AI research community.
+- **Amazon S3**: The selected Cloud object storage service that offers industry-leading scalability, data availability, and security.
+- **GitHub + Github Actions**: Serverless platform for code hosting, versioning, and scheduled executions.
+- **Google Colab**: Hoster service for model on-demand training.
+
+A high-level illustration of the system pipeline can be visualized here:
+
 
 ## How It Works 🤖
 
