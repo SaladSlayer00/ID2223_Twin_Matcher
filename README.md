@@ -1,11 +1,11 @@
 
 # Twin Matcher - Find Your Lookalike 🌟
 
-Welcome to Twin Matcher, your gateway to discovering your doppelgänger! 🔍 This is the final project for the **ID2223 - Scalable Machine Learning & Deep Learning** course at KTH. Notebooks and files are commented, to ensure the best accessibility.
+Welcome to Twin Matcher, your gateway to discovering your doppelgänger! 🔍 This is the final project for the **ID2223 - Scalable Machine Learning & Deep Learning** course at KTH. Notebooks are commented, to ensure the best accessibility.
 
 ## Overview 🚀
 
-Twin Matcher leverages the power of the [Microsoft ResNet-50](https://huggingface.co/microsoft/resnet-50) model to find your lookalike. The system features a seamless pipeline that includes image preprocessing, data handling, model training, and inference. It allows you to visualize your prediction and upload your own data to become part of the dataset and find your long-lost twin. The system is designed for efficiency, minimizing the time from data acquisition to model improvement. By leveraging continuous integration practices, the pipeline is both robust and capable of handling large volumes of data without sacrificing performance. We ensure to get coherent batch updates and the best possible matches with continuous model retraining.
+Twin Matcher leverages the power of the [Microsoft ResNet-50](https://huggingface.co/microsoft/resnet-50) model to find your lookalike. The system features a seamless pipeline that includes image preprocessing, data handling, model training, and inference. It allows you to visualize your prediction and upload your own data to become part of the dataset and find your long-lost twin. The system is designed for efficiency, minimizing the time from data acquisition to model improvement. By leveraging continuous integration practices, the pipeline is both robust and capable of handling large volumes of data without sacrificing performance. We ensure to get coherent batch updates and the best possible matches with continuous model retraining. 
 
 ## Tools 🛠️
 
@@ -20,7 +20,7 @@ This project is built around a complex system pipeline that ensures efficiency a
 - **GitHub + Github Actions**: Serverless platform for code hosting, versioning, and scheduled executions.
 - **Google Colab**: Hoster service for model on-demand training.
 
-A high-level illustration of the system pipeline can be visualized here:
+Versioning is consistent and present in every crucial stage of the pipeline thanks to the leveraged platforms. A high-level illustration of the system pipeline can be visualized here:
 
 <!-- System -->
 <p align="center">
@@ -57,7 +57,7 @@ Periodically, the **Image Pipeline Python Program** pulls images from the S3 buc
 
 Once the images are processed, they are dynamically integrated into an existing Hugging Face dataset. The module accomplishes this by first segregating the images into training and testing subsets, ensuring a balanced distribution that facilitates effective machine learning model training. The process utilizes the `datasets` library from Hugging Face, taking advantage of its efficient handling of large-scale datasets and its compatibility with Hugging Face's model hub, which is necessary for smoothly performing training. First, the images are presented in the dictionary format needed for compatibility, then the original set is concatenated with the latest segment, effectively creating a new version that will replace the oldest. This system can benefit from version control thanks to GitHub Actions job management and Hugging Face history settings. GitHub Actions allows for periodic scheduling through the definition of cron syntax expressions in the dedicated `.github/workflows/main.yml` file. The scheduled execution is performed through [👉this repository](https://github.com/SaladSlayer00/image_pipeline/tree/main).
 
-The dataset update mechanism within this module allows for the dataset to grow iteratively, reflecting the ingestion of new data. The dataset is pushed to the Hugging Face hub using their `push_to_hub` method, which seamlessly updates the repository and ensures that the model training pipeline has access to the latest data. The update is a **batch update**, both given the inherent non-real-time nature of the project and the lengthy time needed for performing an entire end-to-end pipeline. With the current settings, the pull is performed once per month, so that the dataset can be available not too long after the last upload, but event time and ingestion time are decoupled. The dataset where images are added, and that will be used for training, is on [Hugging Face 🤗](https://huggingface.co/datasets/SaladSlayer00/twin_matcher_data/viewer/default/train?p=90)., and is accessed via GitHub Actions workflow thanks to an environment secret token, to avoid manually setting permissions every run.
+The dataset update mechanism within this module allows for the dataset to grow iteratively, reflecting the ingestion of new data. The dataset is pushed to the Hugging Face hub using their `push_to_hub` method, which seamlessly updates the repository and ensures that the model training pipeline has access to the latest data. The update is a **batch update**, both given the inherent non-real-time nature of the project and the lengthy time needed for performing an entire end-to-end pipeline. With the current settings, the pull is performed once per month, so that the dataset can be available not too long after the last upload, but event time and ingestion time are decoupled. The dataset where images are added, and that will be used for training, is on [Hugging Face 🤗](https://huggingface.co/datasets/SaladSlayer00/twin_matcher_data/viewer/default/train?p=90)., and is accessed via GitHub Actions workflow thanks to an environment secret token, to avoid manually setting permissions every run. Saving the model to Hugging Face also allows for keeping a history of the updates that are performed on the dataset. 
 
 ### 4. Training Pipeline 🎯
 
