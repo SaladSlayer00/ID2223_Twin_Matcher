@@ -112,7 +112,8 @@ The app is available [👉here](https://huggingface.co/spaces/SaladSlayer00/twin
 If you want to experience the Twin Matcher as it was originally imagined, you can inspect various modules of the project!
 1. **Inference App**: to find out who your twin is, simply access [this Hugging Face Space](https://huggingface.co/spaces/SaladSlayer00/twin_matcher) and run the app. Upload your picture or take a snapshot from the camera.
 2. **Image Upload**: if you want to add your pictures to the dataset, access [this Hugging Face Space🤗](https://huggingface.co/spaces/SaladSlayer00/image_upload). Your pictures will be safely stored in Amazon S3 buckets and will be used for the next training iteration!
-3. **Trigger Model Training**: if you wish to manually inspect our model training, simply access the `training_pipeline_notebook.ipynb`. Remove or edit the checkpointing directory to your own if you want to save the model to your own space.
+3. **Trigger Dataset Update**: this operation is automatically performed on schedule by the system for a batch periodic update, and is not supposed to be run on-demand. However, if you want to try it yourself, you can run the code in the `image_pipeline.py` file. You would need to have a destination S3 bucket to pull and Hugging Face space to save the new dataset. 
+4. **Trigger Model Training**: if you wish to manually inspect our model training, simply access the `training_pipeline_notebook.ipynb`. Remove or edit the checkpointing directory to your own if you want to save the model to your space.
 
 Execute different components of the project, such as the data pipeline, image pipeline, and Gradio apps, as needed.
 
