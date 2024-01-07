@@ -75,6 +75,7 @@ The fine-tuning process iterates over several epochs, each providing empirical f
 <!-- Image -->
 <p align="center">
   <img src="images/validaiton.png" width=500>
+  <img src="images/training.png" width=500>
 </p>
 
 Finally, the notebook demonstrates an inference procedure using a sample image, showcasing the practical application of the fine-tuned model. The ResNet-50 model's output logits are interpreted to yield a predicted class, completing the end-to-end workflow from model adaptation to practical deployment.
