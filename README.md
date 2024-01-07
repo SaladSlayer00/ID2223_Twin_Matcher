@@ -76,12 +76,19 @@ The fine-tuning process iterates over several epochs, each providing empirical f
 <p align="center">
   <img src="images/validaiton.png" width=500>
 </p>
+
 Finally, the notebook demonstrates an inference procedure using a sample image, showcasing the practical application of the fine-tuned model. The ResNet-50 model's output logits are interpreted to yield a predicted class, completing the end-to-end workflow from model adaptation to practical deployment.
+
 <!-- Image -->
 <p align="center">
   <img src="images/model.png" width=500>
 </p>
-The training pipeline is available as a Jupyter notebook in `training_pipeline_notebook.ipynb`, which demonstrates and comments on each step of the process and allows for manual on-demand retraining (authentication credentials and checkpoint repositories need to be changed according to the user). However, the training also happens on  a periodic schedule via GitHub Actions, where the program executes to perform automatic updates and acquire knowledge on the new image dataset. The process is actuated through 👉[this repository](https://github.com/SaladSlayer00/training_pipeline), but may present limits due to the lack of memory and computational resources occasionally. The model we used for deployment is found on my [Hugging Face🤗](https://huggingface.co/SaladSlayer00/twin_matcher_beta). Training is executed on the whole dataset, and this approach is motivated by some reasons:
+
+The training pipeline is available as a Jupyter notebook in `training_pipeline_notebook.ipynb`, which demonstrates and comments on each step of the process and allows for manual on-demand retraining (authentication 
+credentials and checkpoint repositories need to be changed according to the user). However, the training also happens on  a periodic schedule via GitHub Actions, where the program executes to perform automatic updates 
+and acquire knowledge on the new image dataset. The process is actuated through 👉[this repository](https://github.com/SaladSlayer00/training_pipeline), but may present limits due to the lack of memory and 
+computational resources occasionally. The model we used for deployment is found on my [Hugging Face🤗](https://huggingface.co/SaladSlayer00/twin_matcher_beta). Training is executed on the whole dataset, and this 
+approach is motivated by some reasons:
 - **Data Drift**: the difference in the distribution of inference data, which might present substantial changes compared to historical data, requires more robustness to handle.
 - **Batch Scheduled Retraining**: the update is done at relatively distant times, so that the computational load is not too intensive compared to an online updating algorithm, and allows for handling the full load of the data before the next iteration is repeated.
 - **Sample Bias**: if the new data is not representative of the overall data distribution, the model may become biased towards recent trends.
