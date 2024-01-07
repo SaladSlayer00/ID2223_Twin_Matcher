@@ -74,15 +74,15 @@ Throughout the training phase, a custom callback is used to compute and record t
 The fine-tuning process iterates over several epochs, each providing empirical feedback that informs the optimization of model parameters. After training, the model is evaluated on the validation set, and the loss metric is carefully analyzed to assess the fine-tuning's efficacy. We can see that the model keeps a steadily increasing trend on `validation_accuracy`. Some overfitting happens, as evident in the training logs of the validation and training errors, and this aspect may require further attention to improve model performance, which however presents a satisfying outcome and can be employed for our task.
 <!-- Image -->
 <p align="center">
-  <img src="images/validaiton.png" width=500>
-  <img src="images/training.png" width=500>
+  <img src="images/validaiton.png" width=250>
+  <img src="images/training.png" width=250>
 </p>
 
 Finally, the notebook demonstrates an inference procedure using a sample image, showcasing the practical application of the fine-tuned model. The ResNet-50 model's output logits are interpreted to yield a predicted class, completing the end-to-end workflow from model adaptation to practical deployment.
 
 <!-- Image -->
 <p align="center">
-  <img src="images/model.png" width=500>
+  <img src="images/model.png" width=300>
 </p>
 
 The training pipeline is available as a Jupyter notebook in `training_pipeline_notebook.ipynb`, which demonstrates and comments on each step of the process and allows for manual on-demand retraining (authentication 
